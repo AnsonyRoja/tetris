@@ -337,17 +337,28 @@ function lockPiece() {
 
 function clearLines() {
     let lines = 0;
-    for (let r = ROWS - 1; r >= 0; r--) {
-        if (grid[r].every(cell => cell !== '')) {
-            grid.splice(r, 1);
-            grid.unshift(Array(COLS).fill(''));
+
+    const incompleteRows = [];
+
+    for (let r = 0; r < ROWS; r++) {
+
+        if (grid[r].some(cell => cell === '')) {
+            incompleteRows.push(grid[r]);
+        } else {
             lines++;
         }
     }
+
+
+    const newEmptyRowsCount = ROWS - incompleteRows.length;
+    const newEmptyRows = Array.from({ length: newEmptyRowsCount }, () => Array(COLS).fill(''));
+
+    grid = newEmptyRows.concat(incompleteRows);
+
+
     if (lines > 0) {
         score += [0, 40, 100, 300, 1200][lines] || lines * 100;
         scoreEl.textContent = score;
-        // acelerar un poco
         dropInterval = Math.max(100, dropInterval - lines * 10);
         restarTimer();
     }
