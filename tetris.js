@@ -342,7 +342,6 @@ function clearLines() {
             grid.splice(r, 1);
             grid.unshift(Array(COLS).fill(''));
             lines++;
-            r++; // revisar misma fila nueva
         }
     }
     if (lines > 0) {
