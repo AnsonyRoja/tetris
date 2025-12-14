@@ -257,7 +257,7 @@ function draNext() {
 
     for (let i = 0; i < 16; i++) {
         if (shape[i])
-            previewCells[i].className = 'cell filled' +
+            previewCells[i].className = 'cell filled ' +
                 COLORS[nextPiece.type];
 
     }
