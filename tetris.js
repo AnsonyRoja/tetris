@@ -316,17 +316,23 @@ function collides(x, y, rotation) {
 }
 
 function lockPiece() {
+
     const shape = getShapeMatrix(current.type, current.rotation);
+
     for (let i = 0; i < 16; i++) {
         if (!shape[i]) continue;
         const sr = Math.floor(i / 4), sc = i % 4;
         const r = current.y + sr, c = current.x + sc;
+
         if (r >= 0 && r < ROWS && c >= 0 && c < COLS) {
             grid[r][c] = COLORS[current.type];
         }
     }
+
     clearLines();
+    current = null;
 }
+
 
 
 function clearLines() {
@@ -344,7 +350,7 @@ function clearLines() {
         scoreEl.textContent = score;
         // acelerar un poco
         dropInterval = Math.max(100, dropInterval - lines * 10);
-        restartTimer();
+        restarTimer();
     }
 }
 
