@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tetris</title>
@@ -13,52 +15,82 @@
 </head>
 
 <body>
+    <div class="ctn-btn-mobile">
+        <div class="container">
 
-    <div class="container">
+            <div>
 
-        <div>
+                <div class="board" id="board">
 
-            <div class="board" id="board">
+
+                </div>
+
+            </div>
+
+            <div class="sidebar">
+
+                <div class="panel">
+
+                    <div class="title">Controles</div>
+                    <div class="stat">← → : mover</div>
+                    <div class="stat">↑ : rotar</div>
+                    <div class="stat">↓ : bajar rapido</div>
+                    <div class="stat">Espacio: bajar rapido</div>
+                </div>
+
+                <div class="panel">
+
+                    <div class="title">Proxima</div>
+                    <div class="small-grid" id="next"></div>
+
+                </div>
+
+                <div class="panel">
+
+                    <div class="title">Puntuacion</div>
+                    <div id="score">0</div>
+
+                </div>
+
+                <div class="panel">
+                    <button id="startBtn">Iniciar/Reiniciar</button>
+                </div>
 
 
             </div>
+
+
+
 
         </div>
+        <div class="touch-controls">
+            <button id="leftBtn">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span class="material-icons fallback">chevron_left</span>
+            </button>
 
-        <div class="sidebar">
+            <button id="rotateBtn">
+                <i class="fa-solid fa-rotate-right"></i>
+                <span class="material-icons fallback">rotate_right</span>
+            </button>
 
-            <div class="panel">
+            <button id="rightBtn">
+                <i class="fa-solid fa-arrow-right"></i>
+                <span class="material-icons fallback">chevron_right</span>
+            </button>
 
-                <div class="title">Controles</div>
-                <div class="stat">← → : mover</div>
-                <div class="stat">↑ : rotar</div>
-                <div class="stat">↓ : bajar rapido</div>
-                <div class="stat">Espacio: bajar rapido</div>
-            </div>
+            <button id="downBtn">
+                <i class="fa-solid fa-arrow-down"></i>
+                <span class="material-icons fallback">keyboard_arrow_down</span>
+            </button>
 
-            <div class="panel">
-
-                <div class="title">Proxima</div>
-                <div class="small-grid" id="next"></div>
-
-            </div>
-
-            <div class="panel">
-
-                <div class="title">Puntuacion</div>
-                <div id="score">0</div>
-
-            </div>
-
-            <div class="panel">
-                <button id="startBtn">Iniciar/Reiniciar</button>
-            </div>
-
+            <button id="dropBtn">
+                <i class="fa-solid fa-angles-down"></i>
+                <span class="material-icons fallback">south</span>
+            </button>
 
         </div>
-
     </div>
-
     <script src="script.js"></script>
 </body>
 

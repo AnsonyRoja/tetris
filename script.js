@@ -3,7 +3,11 @@ const boardEl = document.getElementById('board');
 const nextEl = document.getElementById('next');
 const scoreEl = document.getElementById('score');
 const startBtnEl = document.getElementById('startBtn');
-
+const leftBtn = document.getElementById('leftBtn');
+const rightBtn = document.getElementById('rightBtn');
+const downBtn = document.getElementById('downBtn');
+const rotateBtn = document.getElementById('rotateBtn');
+const dropBtn = document.getElementById('dropBtn');
 
 // crear celdas en el tablero 
 
@@ -453,11 +457,59 @@ function initGame() {
     dropTimer = setInterval(() => tick(), dropInterval);
 }
 
+function fontAwesomeLoaded() {
+    const test = document.createElement('i');
+    test.className = 'fa-solid fa-arrow-left';
+    test.style.position = 'absolute';
+    test.style.opacity = '0';
+    document.body.appendChild(test);
+
+    const loaded = getComputedStyle(test).fontFamily.includes('Font Awesome');
+    document.body.removeChild(test);
+
+    return loaded;
+}
+
+
+
+window.addEventListener('load', () => {
+    if (!fontAwesomeLoaded()) {
+        document.querySelectorAll('.fa-solid').forEach(i => i.style.display = 'none');
+        document.querySelectorAll('.material-icons.fallback').forEach(i => i.style.display = 'inline');
+    }
+});
+
+
 
 
 startBtnEl.addEventListener('click', () => {
     initGame();
 })
+
+
+leftBtn?.addEventListener('click', () => {
+    if (running) move(-1, 0), draw();
+});
+
+rightBtn?.addEventListener('click', () => {
+    if (running) move(1, 0), draw();
+});
+
+downBtn?.addEventListener('click', () => {
+    if (running) move(0, 1), draw();
+});
+
+rotateBtn?.addEventListener('click', () => {
+    if (running) rotate(1), draw();
+});
+
+dropBtn?.addEventListener('click', () => {
+    if (!running) return;
+    while (move(0, 1)) { }
+    lockPiece();
+    spawnPiece();
+    draw();
+});
 
 
 

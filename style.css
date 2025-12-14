@@ -133,3 +133,77 @@ button {
 .c-Z {
     background: #ef4444;
 }
+
+.touch-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 0;
+}
+
+
+.touch-controls button {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    border: none;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(6px);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.1s ease, background 0.15s ease;
+}
+
+
+.touch-controls .material-icons {
+    font-size: 34px;
+    opacity: 0.9;
+}
+
+.touch-controls button:active {
+    transform: scale(0.92);
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.touch-controls {
+    max-width: 320px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    display: none;
+}
+
+#rotateBtn {
+    width: 56px;
+    height: 56px;
+}
+
+#dropBtn {
+    width: 120px;
+    height: 48px;
+    border-radius: 24px;
+}
+
+.ctn-btn-mobile {
+    width: 100%;
+}
+
+
+.fallback {
+    display: none;
+}
+
+
+@media (max-width: 768px) {
+
+
+
+    .touch-controls {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
