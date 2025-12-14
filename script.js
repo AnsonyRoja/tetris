@@ -15,7 +15,6 @@ for (let r = 0; r < ROWS; r++) {
 
         const div = document.createElement('div');
         div.className = 'cell';
-        console.log(div);
         boardEl.appendChild(div);
         cells.push(div);
 
