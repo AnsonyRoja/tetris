@@ -34,6 +34,7 @@ for (let i = 0; i < 16; i++) {
     nextEl.appendChild(d);
     previewCells.push(d);
 
+
 }
 
 
